@@ -32,4 +32,18 @@ class Image(models.Model):
     category = models.ManyToManyField(Category)
     date_upload = models.DateTimeField(auto_now_add=True,null=True)
     
-
+    @classmethod
+    def todays_photos(cls):
+        today = dt.date.today()
+        photos = cls.objects.filter(upload_date__date = today)
+        return photos
+    
+    @classmethod
+    def days_photos(cls,date):
+        photos = cls.objects.filter(upload_date__date = date)
+        return photos
+    
+    @classmethod
+    def search_by_category(cls, category):
+        images = cls.objects.filter(category__name__icontains=category)
+        return images
