@@ -1,5 +1,5 @@
 # Gallery-App
-This is an Independent project for Moringa Core Django module, september 3 2021.
+ 
 
 ## Author
 Kojwang Elibora Ochieng
