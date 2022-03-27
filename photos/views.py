@@ -2,20 +2,17 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
 from . models import Image
-from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def welcome(request):
-    photos = Image.objects.all()
-    return render(request,'welcome.html', {"photos": photos})
-
-def photos_of_day(request,photo_id):
-    try:
-        photos=Image.objects.get(id = photo_id)
-    except ObjectDoesNotExist:
-        raise Http404()
     
-    return render(request, 'all-photos/today-photos.html', {"photos":photos})
+    return render(request,'welcome.html')
+
+def photos_of_day(request):
+    date = dt.date.today()
+
+    photos = Image.todays_photos()
+    return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos})
 
     
 
