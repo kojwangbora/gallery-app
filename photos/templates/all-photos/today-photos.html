@@ -8,13 +8,13 @@
   {% for photos_item in photos %}
 
   <div class="row">
-        <!-- displaying News articles -->
+        <!-- displaying photos -->
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <h2 class="text-center"> {{ photos_item.photo_name }} </h2>
         </div>
         <!--Display news Article images  -->
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{photos_item.image.url}}" class="img-responsive" alt="Image">
+            <a href="{% url 'photodetails' %}"></a><img src="{{photos_item.image.url}}" class="img-responsive pt-3" alt="Image" style="width: 450px; height: 350px;">
         </div>
 
   </div>
