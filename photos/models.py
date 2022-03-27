@@ -27,10 +27,10 @@ class Category(models.Model):
 class Image(models.Model):
     photo_name = models.CharField(max_length=30)
     Description = models.TextField()
-    photo = models.ImageField(upload_to = 'photo-gallery', null=True)
+    photo_pic = models.ImageField(upload_to = 'photo-gallery', null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=TRUE)
     category = models.ManyToManyField(Category)
-    date_upload = models.DateTimeField(auto_now_add=True,null=True)
+    upload_date = models.DateTimeField(auto_now_add=True,null=True)
     
     @classmethod
     def todays_photos(cls):
