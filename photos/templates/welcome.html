@@ -1,8 +1,17 @@
 {% include "all-photos/base.html" %}
 
+{% load static %}
+{% load bootstrap4 %}
 
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+{% endblock %}
 {% block content %} 
-<h1 class='text-center'>Welcome to the Gallery App</h1>
+<h1 class="head text-center text-warning">Welcome to the Gallery App</h1>
+<button class="text-warning"><a href="today-photos.html" alt=""></a>Browse</button>
+
+
 
 {%endblock%}
 

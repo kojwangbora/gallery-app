@@ -1,0 +1,19 @@
+body{
+    background-image: url('../../photo-gallery/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.head{
+    margin-top: 25%;
+    font-size: 50;
+    font-weight: bold;
+    
+}
+button{
+    padding: 15px 20px;
+    background: transparent;
+    margin-left: 50%;
+    border: 1px solid rgb(179, 127, 15)
+
+}
