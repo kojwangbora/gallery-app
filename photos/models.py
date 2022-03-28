@@ -38,19 +38,23 @@ class Image(models.Model):
    
     def save_photo(self):
         self.save()
-        
-    @classmethod
-    def todays_photos(cls):
-        today = dt.date.today()
-        photos = cls.objects.filter(upload_date__date = today)
-        return photos
-    
-    @classmethod
-    def days_photos(cls,date):
-        photos = cls.objects.filter(upload_date__date = date)
-        return photos
-    
+
     @classmethod
     def search_by_category(cls, category):
-        images = cls.objects.filter(category__name__icontains=category)
-        return images
+        photos = cls.objects.filter(category__category__icontains = category)
+        return photos
+
+      
+    @classmethod
+    def filter_by_location(cls, location):
+        photos = cls.objects.filter(location__location__icontains = location)
+        return photos
+        
+    def __str__(self):
+        return self.photo_name
+    
+    class Meta:
+        ordering= ('photo_name')
+        
+    
+     
