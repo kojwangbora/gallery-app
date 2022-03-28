@@ -32,9 +32,13 @@ class Image(models.Model):
     Description = models.TextField()
     image = models.ImageField(upload_to = 'photo-gallery', null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=TRUE)
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, on_delete=models.CASCADE, null=TRUE)
     upload_date = models.DateTimeField(auto_now_add=True,null=True)
     
+   
+    def save_photo(self):
+        self.save()
+        
     @classmethod
     def todays_photos(cls):
         today = dt.date.today()

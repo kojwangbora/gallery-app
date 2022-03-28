@@ -1,0 +1,26 @@
+{%extends 'all-photos/base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if images%}
+      <h2>Found {{ images|length }} of filtered term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 images for the filter term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if images %}
+    {% for image in images %}
+      <div class="col-sm-6 col-md-3">
+    <img src="{{photos_item.image.url}}" class="img-responsive pt-3" style="width: 450px; height: 400px;" alt="Image">
+          <h2>{{photos.photo_name}}</h2>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
