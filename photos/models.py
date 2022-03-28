@@ -14,8 +14,8 @@ class Location(models.Model):
     def __str__(self):
         return self.location_name
     
-    # class Meta:
-    #     ordering = ['location_name']
+    class Meta:
+        ordering = ['location_name']
 
 class Category(models.Model):
     category = models.CharField(max_length =30)
@@ -32,7 +32,7 @@ class Image(models.Model):
     Description = models.TextField()
     image = models.ImageField(upload_to = 'photo-gallery', null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=TRUE)
-    category = models.ManyToManyField(Category, on_delete=models.CASCADE, null=TRUE)
+    category = models.ManyToManyField(Category)
     upload_date = models.DateTimeField(auto_now_add=True,null=True)
     
    
@@ -53,8 +53,7 @@ class Image(models.Model):
     def __str__(self):
         return self.photo_name
     
-    class Meta:
-        ordering= ('photo_name')
+    
         
     
      

@@ -11,7 +11,7 @@ def welcome(request):
 
 def photos_of_day(request, pk):
     
-    photos = Image.objects.get(id=pk)
+    photos = Image.objects.get(pk=pk)
     context= {"photos": photos}
     
     return render(request, 'all-photos/today-photos.html', context)
