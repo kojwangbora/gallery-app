@@ -6,8 +6,8 @@ from django.conf import settings
 urlpatterns=[
     re_path(r'^$',views.welcome,name='welcome'),
     re_path('search/', views.search, name='search'),
-    re_path('filter',views.filter_results,name='filter'),
-    path(r'^photodetails/<int:pk>',views.photos_of_day, name = 'photodetails'),
+    path(r'^photodetails/',views.photos_of_day, name = 'photodetails'),
+    path(r'photo_details/<int:pk>',views.photo_details, name ='photo_details')
      
 ]
 

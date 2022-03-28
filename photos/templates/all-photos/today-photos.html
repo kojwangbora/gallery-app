@@ -14,7 +14,7 @@
         </div>
         <!--Display news  images  -->
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <a href="{% url 'photodetails' photos_item.pk %}"><img src="{{photos_item.image.url}}" class="img-responsive pt-3" alt="Image" style="width: 300px; height: 200px;"></a>
+          <a href="{% url 'photo_details' photos_item.id %}"><img src="{{photos_item.image.url}}" class="img-responsive pt-3" alt="Image" style="width: 300px; height: 200px;"></a>
         </div>
 
   </div>

@@ -1,0 +1,47 @@
+{%extends 'all-photos/base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/photos_of_day.css' %}">
+{% endblock %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid">
+    <div class="row container">
+        <div class="col-md-4 my-3">
+            <h4>Photo Name:<span class="text-warning">{{photos.photo_name}}</span></h4>
+            <h4>Description:
+                <p><span class="text-warning">{{photos.description}}</span></p>
+            </h4>
+            <h4>Location: <span class="text-warning">{{photos.location}}</span></h4>
+            <h4>Category: <span class="text-warning">{{photos.category}}</span></h4>
+            <input class="" value="{{photos.image.url}}" id="url">
+            <button class="btn text-danger" onclick="CopyUrl()">Copy Image URL</button>
+
+        </div>
+
+        <div class="col-md-8 my-3">
+            <img src="{{photos.image.url}}" class="img-responsive" alt="" 
+            style="width: 400px; height: 350px;">
+        </div>
+    </div>
+</div>
+    {% block scripts %}
+    {% bootstrap_javascript %}
+    <script>
+        function CopyUrl() {
+            var text = document.getElementById('url')
+            text.select();
+            document.execCommand('copy')
+            alert('image URL has been copied succesfully')
+        }
+    </script>
+  {% endblock %}
+
+</div>
+{% endblock %}

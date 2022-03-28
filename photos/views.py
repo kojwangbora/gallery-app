@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
@@ -9,12 +8,21 @@ def welcome(request):
     photos = Image.objects.all()
     return render(request,'welcome.html', {"photos": photos})
 
-def photos_of_day(request, pk):
+def photos_of_day(request):
     
-    photos = Image.objects.get(pk=pk)
+    photos = Image.objects.all()
     context= {"photos": photos}
     
     return render(request, 'all-photos/today-photos.html', context)
+
+def photo_details(request, pk):
+    photos = Image.objects.get(pk=pk)
+
+    context = {
+         "photos":photos
+     }
+    return render(request, 'all-photos/photo_details.html', context)
+
 
 def filter_results(request):
     if 'image' in request.GET and request.GET["image"]:
@@ -75,4 +83,6 @@ def search(request):
     #     'eachimage':eachimage
     # }
 
-    # return render(request,'gallery/datails.html',context)
+    # context = {
+    #     'eachimage':eachimage
+    # }
