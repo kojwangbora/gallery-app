@@ -15,13 +15,11 @@
     <div class="row container">
         <div class="col-md-4 my-3">
             <h4>Photo Name:<span class="text-warning">{{photos.photo_name}}</span></h4>
-            <h4>Description:
-                <p><span class="text-warning">{{photos.description}}</span></p>
-            </h4>
+            <h4>Description:<span class="text-warning">{{photos.description}}</span></h4>
             <h4>Location: <span class="text-warning">{{photos.location}}</span></h4>
             <h4>Category: <span class="text-warning">{{photos.category}}</span></h4>
             <input class="" value="{{photos.image.url}}" id="url">
-            <button class="btn text-danger" onclick="CopyUrl()">Copy Image URL</button>
+            <button class="btn text-warning bg-primary mt-3" onclick="CopyUrl()">Copy Image URL</button>
 
         </div>
 

@@ -18,7 +18,7 @@ class Location(models.Model):
         ordering = ['location_name']
 
 class Category(models.Model):
-    category = models.CharField(max_length =30)
+    category = models.CharField(max_length =30, null=TRUE, default=None)
 
     def save_category(self):
         self.save()
