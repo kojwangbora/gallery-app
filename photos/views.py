@@ -9,10 +9,10 @@ def welcome(request):
     return render(request,'welcome.html')
 
 def photos_of_day(request):
-    date = dt.date.today()
+     
 
     photos = Image.todays_photos()
-    return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos})
+    return render(request, 'all-photos/today-photos.html', {"photos":photos})
 
     
 
