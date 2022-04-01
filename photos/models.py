@@ -1,6 +1,6 @@
 from django.db import models
 from pickle import FALSE, TRUE
-from cloudinary.models import CloudinaryField
+ 
 
 
 # Create your models here.
