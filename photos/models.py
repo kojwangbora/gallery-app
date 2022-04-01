@@ -1,6 +1,6 @@
 from django.db import models
 from pickle import FALSE, TRUE
-import datetime as dt
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -30,7 +30,7 @@ class Category(models.Model):
 class Image(models.Model):
     photo_name = models.CharField(max_length=30)
     Description = models.TextField()
-    image = models.ImageField(upload_to = 'photo-gallery', null=True)
+    image = CloudinaryField('image')
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=TRUE)
     category = models.ManyToManyField(Category)
     upload_date = models.DateTimeField(auto_now_add=True,null=True)
