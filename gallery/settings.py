@@ -12,9 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+ 
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -182,11 +180,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-cloudinary.config( 
-  cloud_name = "mooringa", 
-  api_key = "943647552277963", 
-  api_secret = "YR5g1Gy1tU1W4NX1SCjJsTLazKc" 
-)
+ 
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
